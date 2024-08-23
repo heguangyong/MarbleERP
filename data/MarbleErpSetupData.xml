@@ -13,17 +13,17 @@ along with this software (see the LICENSE.md file). If not, see
 <http://creativecommons.org/publicdomain/zero/1.0/>.
 -->
 <entity-facade-xml type="seed-initial">
-    <moqui.basic.Enumeration description="Marble ERP App" enumId="UgtMarbleErp" enumTypeId="UserGroupType"/>
+    <moqui.basic.Enumeration description="制造ERP" enumId="UgtMarbleErp" enumTypeId="UserGroupType"/>
 
     <!-- Administrators User Group -->
-    <userGroups userGroupId="MarbleErpAdmin" description="Marble ERP Administrators" groupTypeEnumId="UgtMarbleErp">
+    <userGroups userGroupId="MarbleErpAdmin" description="制造ERP管理组" groupTypeEnumId="UgtMarbleErp">
         <permissions userPermissionId="INVOICE_APPROVE" fromDate="0"/>
         <permissions userPermissionId="ORDER_APPROVE" fromDate="0"/>
         <permissions userPermissionId="CARD_NUMBER_EDIT" fromDate="0"/>
         <permissions userPermissionId="FISCAL_REOPEN" fromDate="0"/>
         <authz artifactAuthzId="MarbleAdminMyAccount" artifactGroupId="MY_ACCOUNT" authzTypeEnumId="AUTHZT_ALWAYS" authzActionEnumId="AUTHZA_ALL"/>
     </userGroups>
-    <artifactGroups artifactGroupId="MarbleErpAll" description="Marble ERP (via root screen)">
+    <artifactGroups artifactGroupId="MarbleErpAll" description="制造ERP (通过根屏幕)">
         <artifacts artifactName="component://MarbleERP/screen/marble.xml" artifactTypeEnumId="AT_XML_SCREEN" inheritAuthz="Y"/>
         <authz artifactAuthzId="MARBLE_ERP_ADMIN" userGroupId="ADMIN"  authzTypeEnumId="AUTHZT_ALWAYS" authzActionEnumId="AUTHZA_ALL">
             <filters entityFilterSetId="MANTLE_ACTIVE_ORG"/></authz>
@@ -32,7 +32,7 @@ along with this software (see the LICENSE.md file). If not, see
     </artifactGroups>
 
     <!-- Root screen (no inherit) and general screens group, for all non-admin user groups -->
-    <artifactGroups artifactGroupId="MarbleErpApp" description="Marble ERP App Access">
+    <artifactGroups artifactGroupId="MarbleErpApp" description="制造ERP访问">
         <artifacts artifactName="component://MarbleERP/screen/marble.xml" artifactTypeEnumId="AT_XML_SCREEN" inheritAuthz="N"/>
         <artifacts artifactName="component://MarbleERP/screen/marble/dashboard.xml" artifactTypeEnumId="AT_XML_SCREEN" inheritAuthz="Y"/>
         <artifacts artifactName="component://SimpleScreens/screen/SimpleScreens/QuickLookup.xml" artifactTypeEnumId="AT_XML_SCREEN" inheritAuthz="Y"/>
